@@ -3,10 +3,10 @@ from django.contrib.auth.models import User
 
 class Post(models.Model):
     POST_CATEGORY_CHOICES = [
-        ('주', '점'),
-        ('부', '스'),
-        ('공', '연'),
-        ('기', '타'),
+        ('주점', '주점'),
+        ('부스', '부스'),
+        ('공연', '공연'),
+        ('기타', '기타'),
     ]
     title = models.CharField(max_length= 50, null=False)
     writer = models.ForeignKey(User, on_delete = models.CASCADE, null=True)
