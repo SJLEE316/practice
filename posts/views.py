@@ -13,9 +13,9 @@ def create(request):
         title = request.POST.get('title')
         writer = request.user
         content = request.POST.get('content')
-        image = request.FILES.get('image')
+        mediafile = request.FILES.get('mediafile')
         category = request.POST.get('category')
-        Post.objects.create(title=title, content=content, image=image, writer=writer, category=category)
+        Post.objects.create(title=title, content=content, mediafile=mediafile, writer=writer, category=category)
         return redirect('posts:main')
 
 
