@@ -16,7 +16,7 @@ def create(request):
         mediafile = request.FILES.get('mediafile')
         category = request.POST.get('category')
         Post.objects.create(title=title, content=content, mediafile=mediafile, writer=writer, category=category)
-        return redirect('posts:main')
+        return redirect('posts:gallery')
 
 
 def main(request):
@@ -78,4 +78,5 @@ def like_list(request):
     return render(request,'posts/like_list.html',{'likes':likes})
 
 def gallery(request):
-    return render(request, 'posts/gallery.html')
+    posts = Post.objects.all()
+    return render(request, 'posts/gallery.html', {'posts':posts})

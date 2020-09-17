@@ -163,7 +163,8 @@
                 navigateByImgClick: true,
                 tPrev: 'Previous',
                 tNext: 'Next'
-            }
+            },
+
         });
     }
 
