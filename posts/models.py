@@ -22,7 +22,6 @@ class Post(models.Model):
     def like_count(self):
         return self.like_user_set.count()
     
-
 class Comment(models.Model):
     content = models.TextField()
     writer = models.ForeignKey(User, on_delete=models.CASCADE)

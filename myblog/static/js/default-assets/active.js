@@ -153,7 +153,8 @@
     // *********************************
     if ($.fn.magnificPopup) {
         $('.video-play-btn').magnificPopup({
-            type: 'iframe'
+            type: 'iframe',
+
         });
         $('.portfolio-img').magnificPopup({
             type: 'image',

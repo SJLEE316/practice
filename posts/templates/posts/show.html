@@ -18,8 +18,14 @@
 <h3>수정 시각 : {{ post.updated_at }} </h3><br>
 <h3>조회수: {{post.view_count }}</h3><br>  
 
-{% if post.work %}
-	 <img src ="{{ post.image.url }}" alt="">
+{% if post.mediafile %}
+	<img src ="{{ post.mediafile.url }}" alt="">
+	<!-- <video width='400' controls>
+
+		<source src="{{ post.mediafile.url }}" alt="" blank=true>
+
+		Sorry, your browser doesn't support embedded videos.
+	</video> -->
 {%  endif %}
 
 {% if user == post.writer %}
@@ -52,9 +58,10 @@ placeholder="댓글 내용 입력..."></textarea>
 	<div class="card">
 		<div class="card-body">
 			{% if comment.writer.username == 'user' %}
-			<b>{{ comment.writer.last_name }}{{ comment.writer.first_name }}
-				{% else %}
-				<b>{{ comment.writer }}</b> {% endif %} : {{ comment.content }}</br>
+				<b>{{ comment.writer.last_name }}{{ comment.writer.first_name }}
+			{% else %}
+				<b>{{ comment.writer }}</b> 
+			{% endif %} : {{ comment.content }}</br>
 				<small>{{ comment.created_at }}</small>
 		</div>
 	</div>

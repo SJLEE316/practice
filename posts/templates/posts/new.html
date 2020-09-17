@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
+{% load static %}
+
 <div class="container">
     <h1>
     새로운 글 작성하기
@@ -28,9 +30,12 @@
             </select>
         </div>
         <div class="col-12">
-            <input type="file" name="mediafile" accept="image/*, video/*">
+            <input type="file" name="mediafile" onchange="checkSize(this)" accept="image/*, video/*">
             <input type="submit" value="글 작성" class="btn btn-outline-primary">
         </div>
     </form>
 </div>
+
+<script src="{% static 'js/filesizecut.js' %}"></script>
+
 {% endblock %}
