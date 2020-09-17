@@ -19,14 +19,21 @@
 <h3>조회수: {{post.view_count }}</h3><br>  
 
 {% if post.mediafile %}
-	<img src ="{{ post.mediafile.url }}" alt="">
-	<!-- <video width='400' controls>
+	{% if "mp4" in post.mediafile.name %}
+		<video class="col-12">
+			<source src="{{post.mediafile.url}}" alt="video">
+		</video>
+		<div class="hover-content">
+			<a href="{{post.mediafile.url}}" class=".video-play-btn">+</a>
+		</div>
+	{% else %}
+		<img src ="{{post.mediafile.url}}" alt="">
+		<div class="hover-content">
+			<a href="{{post.mediafile.url}}" class="portfolio-img">+</a>
+		</div>
+	{% endif %}
 
-		<source src="{{ post.mediafile.url }}" alt="" blank=true>
-
-		Sorry, your browser doesn't support embedded videos.
-	</video> -->
-{%  endif %}
+{% endif %}
 
 {% if user == post.writer %}
 	<a href="{% url 'posts:update' post.pk %}" class="btn btn-primary">수정하기</a>
