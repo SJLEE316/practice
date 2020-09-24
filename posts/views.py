@@ -7,8 +7,6 @@ from django.contrib.auth.decorators import login_required
 def new(request):
     return render(request, 'posts/new.html')
     
-
-
 def create(request):
     if request.method == "POST":
         title = request.POST.get('title')
@@ -16,9 +14,9 @@ def create(request):
         content = request.POST.get('content')
         mediafile = request.FILES.get('mediafile')
         category = request.POST.get('category')
-        Post.objects.create(title=title, content=content, mediafile=mediafile, writer=writer, category=category)
+        mediatype = mediafile.content_type
+        Post.objects.create(title=title, content=content, mediafile=mediafile, writer=writer, category=category, mediatype=mediatype)
         return redirect('posts:gallery')
-
 
 def main(request):
     posts = Post.objects.all()
@@ -80,4 +78,18 @@ def like_list(request):
 
 def gallery(request):
     posts = Post.objects.all()
+    # post = request.GET.get('sort','')
+
+    # if sort == 'latest':
+    #     posts = Post.objects.order_by('-created_at')
+    #     return render(request, 'posts/gallery.html', {'posts':posts})
+    
+    # else:
+    #     posts = Post.objects.order_by('-created_at')
+    #     return render(request, 'posts/gallery.html', {'posts':posts})
+
+
     return render(request, 'posts/gallery.html', {'posts':posts})
+
+def about(request):
+    return render(request, 'posts/about.html')    

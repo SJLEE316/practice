@@ -10,7 +10,8 @@ class PostAdmin(admin.ModelAdmin):
         'title',
         'created_at',
         'category',
-        'mediafile'
+        'mediafile',
+        'mediatype',
     )
     search_fields = (
         'title',

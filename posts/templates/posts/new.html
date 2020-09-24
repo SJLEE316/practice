@@ -29,8 +29,9 @@
                 <option value="etc">기타</option>
             </select>
         </div>
+
         <div class="col-12">
-            <input type="file" name="mediafile" onchange="checkSize(this)" accept="image/*, video/*">
+            <input type="file" name="mediafile" onchange="limitSize(this)" accept="image/*, video/*">
             <input type="submit" value="글 작성" class="btn btn-outline-primary">
         </div>
     </form>
